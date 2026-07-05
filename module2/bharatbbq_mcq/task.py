@@ -5,7 +5,8 @@ from inspect_ai import Task, task
 from inspect_ai.dataset import Sample
 from inspect_ai.solver import generate
 from inspect_ai.scorer import match
-
+import os
+from pathlib import Path
 
 TARGET_MAP = {
     1: "A",
@@ -43,7 +44,7 @@ def load_bharatbbq():
     dataset_dir = (
         module_dir
         / "datasets"
-        / "bharatbbq"
+        / "bharatbbqmcq"
     )
 
     print(f"Dataset directory: {dataset_dir}")
@@ -93,6 +94,16 @@ def load_bharatbbq():
 
     return samples
 
+# ------------------------------------------------------------------
+# Store Inspect AI logs inside module2/bharatbbq_mcq/logs
+# ------------------------------------------------------------------
+
+MODULE_DIR = Path(__file__).resolve().parent
+
+LOG_DIR = MODULE_DIR / "logs"
+LOG_DIR.mkdir(parents=True, exist_ok=True)
+
+os.environ["INSPECT_LOG_DIR"] = str(LOG_DIR)
 
 @task
 def bharatbbq():

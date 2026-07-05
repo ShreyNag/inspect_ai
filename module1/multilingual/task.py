@@ -15,14 +15,15 @@ def load_samples():
     csv_path = (
         module_dir
         / "datasets"
-        / "mmlu_multilingual.csv"
+        / "mmlu_translated.csv"
     )
 
     df = pd.read_csv(csv_path)
 
     samples = []
 
-    for _, row in df.head(20).iterrows():
+    for _, row in df.head(14).iterrows():
+    #for _, row in df.iterrows():
 
         prompt = f"""
 Answer the following multiple-choice question.

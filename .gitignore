@@ -1,12 +1,11 @@
-__pycache__/
-*.pyc
-.venv/
-venv/
-.env
+# Ignore Python cache
+**/__pycache__/
+*.py[cod]
 
-logs/
-*.eval
+# Ignore all datasets folders
+**/datasets/
 
-.ipynb_checkpoints/
-
-.DS_Store
+# Ignore generated output
+**/logs/
+**/results/
+**/plots/

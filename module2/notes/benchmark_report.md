@@ -134,5 +134,8 @@ Current run is a reduced-size validation run using 5 samples per category to ver
 A full benchmark run should be executed using the complete BharatBBQ dataset before reporting final benchmark numbers.
 
 
-inspect eval india_evals/module2/bias/task.py@bharatbbq --model ollama/llama3.2
+inspect eval india_evals/module2/bharatbbq_mcq/task.py@bharatbbq --model ollama/llama3.2
 python -m india_evals.module2.scripts.analyze_bharatbbq
+
+inspect eval india_evals/module2/bharatbbq_reasoning/task.py@bharatbbq_reasoning --model ollama/tinyllama
+python india_evals/module2/bharatbbq_reasoning/analyze_reasoning.py
